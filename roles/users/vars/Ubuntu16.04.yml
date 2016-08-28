@@ -1,0 +1,15 @@
+---
+
+### Sudoers ###
+sudoers_template: "templates/sudoers.j2"
+sudoers_dest: "/etc/sudoers"
+sudoers_owner: "root"
+sudoers_group: "root"
+sudoers_mode: "440"
+sudoers_validate: "visudo -cf %s"
+
+sudoers_groups_template: "templates/sudoers.group.j2"
+sudoers_groups_dest_dir: "/etc/sudoers.d"
+sudoers_groups_mode: "440"
+sudoers_groups_owner: "root"
+sudoers_groups_group: "root"

@@ -1,0 +1,18 @@
+---
+
+- name: include distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
+
+- name: Inlcude group creation
+  include: groups.yml
+
+
+- name: Include user creation
+  include: users.yml
+
+
+# include sudoers last to avoid permission issues!
+- name: Include sudoers configuration
+  include: sudoers_file.yml
+
+...

@@ -57,9 +57,26 @@ secretGroups:
       - encrypted: "roles/users/defaults/main.yml"
         decrypted: "roles/users/defaults/main.yml"
 
-  aws-deploy:
-    key: "`cat openssl_pass`"
+  aws:
+    key: "`cat openssl_aws_pass`"
     encryption: "openssl"
     secrets:
       - encrypted: ".aws/credentials/deploy.sh.enc"
         decrypted: ".aws/credentials/deploy.sh" 
+
+  users:
+    key: "`cat openssl_sec1_pass`"
+    encryption: "openssl"
+    secrets:
+      - encrypted: "roles/users/files/10001_kf/authorized_keys.enc"
+        decrypted: "roles/users/files/10001_kf/authorized_keys"
+      - encrypted: "roles/users/files/9500_an/authorized_keys.enc"
+        decrypted: "roles/users/files/9500_an/authorized_keys"
+      - encrypted: "roles/users/files/9501_de/authorized_keys.enc"
+        decrypted: "roles/users/files/9501_de/authorized_keys"
+      - encrypted: "roles/users/files/9502_hi/authorized_keys.enc"
+        decrypted: "roles/users/files/9502_hi/authorized_keys"
+      - encrypted: "roles/users/templates/sudoers.j2.enc"
+        decrypted: "roles/users/templates/sudoers.j2" 
+      - encrypted: "roles/users/templates/sudoers.group.j2.enc"
+        decrypted: "roles/users/templates/sudoers.group.j2"

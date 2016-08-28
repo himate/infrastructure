@@ -1,0 +1,13 @@
+---
+
+- name: Add sudoers top file
+  template:
+    src={{ sudoers_template }}
+    dest={{ sudoers_dest }}
+    owner={{ sudoers_owner }}
+    group={{ sudoers_group }}
+    mode={{ sudoers_mode }}
+    validate={{ sudoers_validate }}
+  when: "{{ configure_sudoers_top_file | default(True) }}"
+
+...
