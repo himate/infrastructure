@@ -1,0 +1,20 @@
+---
+
+- name: Add groups
+  group:
+    name={{ item.groupname }}
+    gid={{ item.gid }}
+    state={{ item.state }}
+  with_items: "{{ user_group_list | default([]) }}"
+
+- name: Add admin groups to sudoers
+  template: 
+    src={{ sudoers_groups_template }}
+    dest={{ sudoers_groups_dest_dir }}/{{ item.groupname }}_group
+    mode={{ sudoers_groups_mode }}
+    owner={{ sudoers_groups_owner }}
+    group={{ sudoers_groups_group }}
+  when: "{{ item.sudoers | default(False) }}"
+  with_items: "{{ user_group_list | default([]) }}"
+
+...

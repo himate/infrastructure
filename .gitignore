@@ -1,4 +1,5 @@
-openssl_pass
+openssl_aws_pass
+openssl_sec1_pass
 ansible_pass
 
 *.swp
@@ -8,3 +9,10 @@ ansible_pass
 .vagrant/machines
 
 .aws/credentials/deploy.sh
+
+roles/users/files/10001_kf/authorized_keys
+roles/users/files/9500_an/authorized_keys
+roles/users/files/9501_de/authorized_keys
+roles/users/files/9502_hi/authorized_keys
+roles/users/templates/sudoers.j2
+roles/users/templates/sudoers.group.j2

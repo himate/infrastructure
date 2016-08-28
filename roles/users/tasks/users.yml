@@ -1,0 +1,79 @@
+---
+
+- name: Add users
+  user: 
+    name={{ item.username }} 
+    uid={{ item.uid }} 
+    groups={{ item.groups | default('') }} 
+    shell={{ item.shell }} 
+    state={{ item.state }}
+    home={{ item.home | default("/home/" + item.username) }}
+    comment={{ item.name }} ({{ item.email }})
+  when: "{{ item.state == 'present' }}"
+  with_items: "{{ user_list |default([]) }}"
+
+
+- name: Remove users
+  user: 
+    name={{ item.username }} 
+    remove=yes
+    force=yes
+    state=absent
+  when: "{{ item.state == 'absent' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+
+- name: Add authorized keys for users
+  authorized_key:
+    user={{ item.username }}
+    key={{ lookup('file', item.authorized_keys) }}
+    state={{ item.username_state | default('present') }}
+  when: "{{ item.authorized_keys is defined and item.state == 'present' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+
+- name: Ensure .ssh dir exists for user
+  file: 
+    path={{ item.home | default("/home/" + item.username) }}/.ssh
+    owner={{ item.username }}
+    group={{ item.username }}
+    state=directory 
+    mode=700
+  when: "{{ item.state == 'present' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+
+### TODO: encryption
+- name: Add private keys for user
+  copy: 
+    src={{ item.private_key }}
+    dest=/home/{{ item.username }}/.ssh/id_rsa
+    owner={{ item.username }}
+    group={{ item.username }}
+    mode=600
+  when: "{{ item.private_key is defined and item.state == 'present' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+
+- name: Add public keys for user
+  copy: 
+    src={{ item.public_key }}
+    dest=/home/{{ item.username }}/.ssh/id_rsa.pub
+    owner={{ item.username }}
+    group={{ item.username }}
+    mode=664
+  when: "{{ item.public_username is defined and item.state == 'present' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+
+- name: Add vimrc for users
+  copy: 
+    src={{ item.vimrc }}
+    dest=/home/{{ item.username }}/.vimrc
+    owner={{ item.username }}
+    group={{ item.username }}
+    mode=644
+  when: "{{ item.vimrc is defined and item.state == 'present' }}"
+  with_items: "{{ user_list | default([]) }}"
+
+...
