@@ -1,2 +1,3 @@
-# himate-infrastructure
+# infrastructure
 
+HiMate infrastructure code

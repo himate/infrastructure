@@ -1,0 +1,65 @@
+---
+
+encryptions:
+  openssl: 
+    encrypt:
+      executable: "openssl"
+      args: 
+        - "aes-256-cbc" 
+        - "-k" 
+        - "{{.Key}}" 
+        - "-in" 
+        - "{{.In}}" 
+        - "-out"
+        - "{{.Out}}" 
+        - "-e"
+    decrypt:
+      executable: "openssl"
+      args: 
+        - "aes-256-cbc" 
+        - "-k" 
+        - "{{.Key}}" 
+        - "-in" 
+        - "{{.In}}" 
+        - "-out"
+        - "{{.Out}}" 
+        - "-d"
+
+  ansible-vault:
+    encrypt:
+      executable: "ansible-vault"
+      args: 
+        - "encrypt" 
+        - "{{.In}}"
+      env: 
+        - name: "ANSIBLE_VAULT_PASSWORD_FILE"
+          value: "{{.Key}}"
+    decrypt:
+      executable: "ansible-vault"
+      args: 
+        - "decrypt" 
+        - "{{.In}}"
+      env: 
+        - name: "ANSIBLE_VAULT_PASSWORD_FILE"
+          value: "{{.Key}}"
+
+secretGroups:
+  ansible-all:
+    key: "ansible_pass"
+    encryption: "ansible-vault"
+    secrets:
+      - encrypted: "group_vars/all.yml"
+        decrypted: "group_vars/all.yml"
+      - encrypted: "group_vars/management.yml"
+        decrypted: "group_vars/management.yml" 
+      - encrypted: "group_vars/himate-test.yml"
+        decrypted: "group_vars/himate-test.yml"
+      - encrypted: "roles/users/defaults/main.yml"
+        decrypted: "roles/users/defaults/main.yml"
+
+  aws-deploy:
+    key: "`cat openssl_pass`"
+    encryption: "openssl"
+    secrets:
+      - encrypted: ".aws/credentials/deploy.sh.enc"
+        decrypted: ".aws/credentials/deploy.sh" 
