@@ -1,0 +1,10 @@
+openssl_pass
+ansible_pass
+
+*.swp
+*.retry
+*.log
+
+.vagrant/machines
+
+.aws/credentials/deploy.sh

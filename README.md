@@ -1,2 +1,2 @@
-# infrastructure
-HiMate Infrastructure
+# himate-infrastructure
+
