@@ -1,0 +1,19 @@
+---
+
+himate_dirs:
+  base:
+    path: "/home/himate"
+    owner: "himate"
+    group: "himate"
+  log:
+    path: "/home/himate/log"
+    owner: "himate"
+    group: "himate"
+  data:
+    path: "/home/himate/data"
+    owner: "himate"
+    group: "himate"
+  app:
+    path: "/home/himate/app"
+    owner: "himate"
+    group: "himate"
