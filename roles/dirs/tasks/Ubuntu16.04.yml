@@ -1,0 +1,10 @@
+---
+
+- name: Create base directories
+  file:
+    path: "{{ item.value.path }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    state: directory
+    mode: "{{ item.value.mode | default('755') }}"
+  with_dict: "{{ himate_dirs }}"
