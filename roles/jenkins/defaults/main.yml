@@ -1,0 +1,7 @@
+---
+
+jenkins_container_name: "jenkins"
+jenkins_container_image: "jenkins:2.7.3"
+jenkins_service_restart_id: "restart {{ jenkins_container_name }} service"
+
+...

@@ -1,0 +1,4 @@
+---
+
+pip_initial_install_packages: 
+  - "python-pip"

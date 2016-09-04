@@ -1,0 +1,8 @@
+---
+
+- name: "{{ jenkins_container_restart_id }}"
+  docker_container:
+    name: "{{ jenkins_container_name }}"
+    restart: true
+
+...

@@ -1,0 +1,8 @@
+---
+
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
+
+- name: Include distribution specific installation
+  include: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
+

@@ -1,0 +1,15 @@
+---
+
+- hosts: jenkins
+  become: yes
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - jenkins
+    - nginx
+    - docker
+
+  tags:
+    - jenkins
+
+...

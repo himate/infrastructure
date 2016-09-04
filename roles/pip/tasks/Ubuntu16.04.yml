@@ -1,0 +1,8 @@
+---
+
+- name: Install pip packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ pip_initial_install_packages }}"
