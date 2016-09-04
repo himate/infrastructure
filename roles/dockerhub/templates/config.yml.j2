@@ -7,8 +7,8 @@ storage:
     rootdirectory: /var/lib/registry
 http:
   addr: :5000
-  host: https://dockerhub.himate.org
-  secret: AePha2oorii7una1rah0phae
+  host: {{ dockerhub_host }}
+  secret: {{ dockerhub_secret }}
   headers:
     X-Content-Type-Options: [nosniff]
 health:

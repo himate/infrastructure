@@ -1,0 +1,38 @@
+######
+# Install
+######
+nginx_pip_requirements:
+  - "passlib"
+
+######
+# Dirs
+######
+nginx_dirs:
+  sites_enabled:
+    path: "/opt/nginx/sites-enabled"
+    owner: "root"
+    group: "root"
+    mode: "775"
+  conf_d:
+    path: "/opt/nginx/conf.d"
+    owner: "root"
+    group: "root"
+    mode: "775"
+
+######
+# Config / Files
+######
+nginx_file_templates:
+  config: 
+    src: "templates/nginx.conf.j2"
+    dest: "/opt/nginx/nginx.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  default:
+    src: "templates/default.page.conf.j2"
+    dest: "/opt/nginx/conf.d/default.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+

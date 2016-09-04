@@ -1,0 +1,8 @@
+---
+
+- name: "{{ nginx_container_restart_id }}"
+  docker_container:
+    name: "{{ nginx_container_name }}"
+    restart: true
+
+...
