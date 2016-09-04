@@ -1,0 +1,29 @@
+---
+
+- name: Install passlib python module for passwd file setup via ansible
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ nginx_pip_requirements }}"
+
+
+- name: Create nginx dirs
+  file: 
+    path: "{{ item.value.path }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    state: directory 
+    mode: "{{ item.value.mode }}"
+  with_dict: "{{ nginx_dirs }}"
+
+
+- name: Deploy nginx default files and configs
+  template:
+    src: "{{ item.value.src }}"
+    dest: "{{ item.value.dest }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    mode: "{{ item.value.mode }}"
+  with_dict: "{{ nginx_file_templates }}"
+  notify: "{{ nginx_container_restart_id }}"
+
+...

@@ -1,0 +1,15 @@
+---
+
+- hosts: dockerhub
+  become: yes
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - dockerhub
+    - nginx
+    - docker
+
+  tags:
+    - dockerhub
+
+...

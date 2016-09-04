@@ -1,0 +1,24 @@
+---
+
+- name: Setup nginx sites
+  template:
+    src: "{{ item.value.template }}"
+    dest: "{{ nginx_dirs.sites_enabled.path }}/{{ item.key }}.conf"
+    mode: 0644
+    owner: root
+    group: root
+  notify: "{{ nginx_container_restart_id }}"
+  with_dict: "{{ nginx_sites_enabled | default({}) }}" 
+
+
+- name: Deploy passwd files
+  htpasswd: 
+    path: "{{ item.value.file }}"
+    name: "{{ item.value.user }}"
+    password: "{{ item.value.password }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    mode: "{{ item.value.mode | default('0640')}}"
+  with_dict: "{{ nginx_passwd_files | default({}) }}"
+
+...
