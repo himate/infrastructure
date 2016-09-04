@@ -1,0 +1,9 @@
+---
+
+docker_registry_dirs:
+  config:
+    path: "/opt/docker-registry"
+    owner: "root"
+    group: "root"
+
+...

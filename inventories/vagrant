@@ -1,5 +1,5 @@
-[management]
-management
+[dockerhub]
+himate-management
 
 [himate-test]
 himate-app-test
@@ -8,6 +8,6 @@ himate-app-test
 # Grouping
 #####
 [dev:children]
-management
+dockerhub
 himate-test
 

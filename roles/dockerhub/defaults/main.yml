@@ -1,0 +1,9 @@
+---
+
+docker_registry_container_name: "docker-registry"
+docker_registry_container_image: "registry:2"
+docker_registry_container_restart_id: "restart docker registry container"
+
+docker_registry_ui_container_name: "docker-registry-ui"
+docker_registry_ui_container_image: "konradkleine/docker-registry-frontend:v2"
+docker_registry_ui_container_restart_id: "restart docker registry ui container"

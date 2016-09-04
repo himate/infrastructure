@@ -1,0 +1,11 @@
+---
+
+- name: "{{ docker_registry_container_restart_id }}"
+  docker_container:
+    name: "{{ docker_registry_container_name }}"
+    restart: true
+
+- name: "{{ docker_registry_ui_container_restart_id }}"
+  docker_container:
+    name: "{{ docker_registry_ui_container_name }}"
+    restart: true
