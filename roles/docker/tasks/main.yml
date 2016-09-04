@@ -1,0 +1,41 @@
+---
+
+- name: docker distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
+
+- name: docker distribution specific install
+  include: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
+
+#- name: login to private registry
+#  docker_login:
+#    registry: "{{ docker_registry }}"
+#    username: "{{ docker_username }}"
+#    password: "{{ docker_password }}"
+
+- name: deploy docker containers
+  docker_container:
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    command: "{{ item.command | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    pull: "{{ item.pull | default(omit) }}"
+    privileged: "{{ item.privileged | default(omit) }}"
+    restart_retries: "{{ item.restart_retries | default(omit) }}"
+    network_mode: "{{ item.network_mode | default(omit) }}"
+    memory: "{{ item.memory | default(omit) }}"
+    memory_reservation: "{{ item.memory_reservation | default(omit) }}"
+    ports: "{{ item.ports | default(omit) }}"
+    expose: "{{ item.expose | default(omit) }}"
+    links: "{{ item.links | default(omit) }}"
+    volumes: "{{ item.volumes | default(omit) }}"
+    env: "{{ item.env | default(omit) }}"
+    etc_hosts: "{{ item.etc_hosts | default(omit) }}"
+    restart_policy: "{{ item.restart_policy | default(omit) }}"
+    volumes_from: "{{ item.volumes_from | default(omit) }}"
+  with_items: "{{ docker_containers | default(omit) }}"
+  when: "not {{ item.only_initial|default('False') }} or {{ is_initial_run|default('False') }}"
+
+#- name: logout of private registry
+#  shell: "docker logout {{ docker_registry }}"
+
+...
