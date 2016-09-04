@@ -1,6 +1,9 @@
 [dockerhub]
 himate-management
 
+[jenkins]
+himate-management
+
 [himate-test]
 himate-app-test
 
@@ -10,4 +13,4 @@ himate-app-test
 [dev:children]
 dockerhub
 himate-test
-
+jenkins
