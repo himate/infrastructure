@@ -1,0 +1,8 @@
+---
+
+- name: "{{ mongo_container_restart_id }}"
+  docker_container:
+    name: "{{ mongo_container_name }}"
+    restart: True
+
+...

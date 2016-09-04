@@ -1,0 +1,12 @@
+---
+
+mongo_container_name: "mongodb"
+mongo_container_image: "mongo:3.3.12"
+mongo_container_restart_id: "restart {{ mongo_container_name }} container"
+
+mongo_container_log_dir: "/var/log/mongo"
+mongo_container_log_file: "{{ mongo_container_log_dir }}/mongo.log"
+mongo_container_data_dir: "/data/db"
+mongo_container_port: 27017
+
+...
