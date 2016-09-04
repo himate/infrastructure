@@ -50,8 +50,8 @@ secretGroups:
     secrets:
       - encrypted: "group_vars/all.yml"
         decrypted: "group_vars/all.yml"
-      - encrypted: "group_vars/management.yml"
-        decrypted: "group_vars/management.yml" 
+      - encrypted: "group_vars/dockerhub.yml"
+        decrypted: "group_vars/dockerhub.yml" 
       - encrypted: "group_vars/himate-test.yml"
         decrypted: "group_vars/himate-test.yml"
       - encrypted: "roles/users/defaults/main.yml"

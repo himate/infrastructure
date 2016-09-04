@@ -1,0 +1,20 @@
+---
+
+- name: Create directories
+  file:
+    path: "{{ item.value.path }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    state: directory
+    mode: "{{ item.value.mode | default('755') }}"
+  with_dict: "{{ docker_registry_dirs }}"
+    
+
+- name: Deploy registry config file
+  template:
+    src: "templates/config.yml.j2"
+    dest: "{{ docker_registry_dirs.config.path }}/config.yml"
+    owner: root
+    group: root
+
+...
