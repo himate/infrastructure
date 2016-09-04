@@ -1,0 +1,5 @@
+---
+
+mongo_host_config: "/opt/mongod.conf"
+mongo_host_port: 27017
+

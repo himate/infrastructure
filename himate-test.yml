@@ -1,0 +1,16 @@
+---
+
+- hosts: himate-test
+  become: yes
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - mongodb
+#    - himate
+#    - nginx
+    - docker
+
+  tags:
+    - himate-test
+
+...
