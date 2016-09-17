@@ -1,8 +1,8 @@
 [dockerhub]
-himate-management
+himate-dockerhub
 
 [jenkins]
-himate-management
+himate-jenkins
 
 [himate-test]
 himate-app-test
