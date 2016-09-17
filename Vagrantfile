@@ -9,23 +9,31 @@ host_prefix = 'himate'
 boxes = {
 
   ######
-  # Ansible master server
+  # Ansible server
   ######
-  'master' => {
+  'ansible' => {
     dist: 'ubuntu/xenial64',
     mem:  1024,
     ip: '10.10.11.10',
     copy: [ '~/.gitconfig', '.vagrant/ssh/local.dev.private.key', '.vagrant/ssh/local.dev.public.key' ],
-    exec: [ '.vagrant/ssh/ubuntu1604.deploy.local.dev.keys.sh', '.vagrant/master.ubuntu1604.sh' ],
+    exec: [ '.vagrant/ssh/ubuntu1604.deploy.local.dev.keys.sh', '.vagrant/ansible.ubuntu1604.sh' ],
   },
 
   ######
   # Management
   ######
-  'management' => { 
+  'dockerhub' => { 
     dist: 'ubuntu/xenial64',
     mem: 2048,
     ip: '10.10.11.11',
+    copy: [ '.vagrant/ssh/local.dev.public.key' ],
+	exec: ['.vagrant/ssh/ubuntu1604.deploy.local.dev.keys.sh', '.vagrant/box.ubuntu1604.sh' ],
+  },
+
+  'jenkins' => { 
+    dist: 'ubuntu/xenial64',
+    mem: 2048,
+    ip: '10.10.11.12',
     copy: [ '.vagrant/ssh/local.dev.public.key' ],
 	exec: ['.vagrant/ssh/ubuntu1604.deploy.local.dev.keys.sh', '.vagrant/box.ubuntu1604.sh' ],
   },
@@ -36,7 +44,7 @@ boxes = {
   'app-test' => { 
     dist: 'ubuntu/xenial64',
     mem: 2048,
-    ip: '10.10.11.12',
+    ip: '10.10.11.13',
     copy: [ '.vagrant/ssh/local.dev.public.key' ],
 	exec: ['.vagrant/ssh/ubuntu1604.deploy.local.dev.keys.sh', '.vagrant/box.ubuntu1604.sh' ],
   },
