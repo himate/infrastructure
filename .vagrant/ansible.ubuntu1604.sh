@@ -33,12 +33,9 @@ sudo apt-get install language-pack-en -y
 # Ansible
 ######
 # Install Ansible
-sudo apt-get install -y software-properties-common git python-dev python-pip libyaml-dev libssl-dev libffi-dev
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7BB9C367
-sudo apt-get update
-sudo pip install paramiko PyYAML Jinja2 httplib2 six
-sudo apt-get install -y ansible
+sudo apt-get install python-dev python-pip libssl-dev libffi-dev -y
+sudo pip install paramiko PyYAML Jinja2 httplib2 six pycrypto
+git clone git://github.com/ansible/ansible.git --recursive /opt/ansible
 
 ######
 # Repo
