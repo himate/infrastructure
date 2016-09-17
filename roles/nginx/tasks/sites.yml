@@ -2,7 +2,7 @@
 
 - name: Setup nginx sites
   template:
-    src: "{{ item.value.template }}"
+    src: "{{ role_path }}/{{ item.value.template }}"
     dest: "{{ nginx_dirs.sites_enabled.path }}/{{ item.key }}.conf"
     mode: 0644
     owner: root

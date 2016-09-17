@@ -9,7 +9,7 @@
 
 - name: Add admin groups to sudoers
   template: 
-    src={{ sudoers_groups_template }}
+    src={{ role_path }}/{{ sudoers_groups_template }}
     dest={{ sudoers_groups_dest_dir }}/{{ item.groupname }}_group
     mode={{ sudoers_groups_mode }}
     owner={{ sudoers_groups_owner }}

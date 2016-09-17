@@ -18,7 +18,7 @@
 
 - name: Deploy nginx default files and configs
   template:
-    src: "{{ item.value.src }}"
+    src: "{{ role_path }}/{{ item.value.src }}"
     dest: "{{ item.value.dest }}"
     owner: "{{ item.value.owner }}"
     group: "{{ item.value.group }}"

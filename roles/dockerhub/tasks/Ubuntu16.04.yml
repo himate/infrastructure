@@ -12,7 +12,7 @@
 
 - name: Deploy registry config file
   template:
-    src: "templates/config.yml.j2"
+    src: "{{ role_path }}/templates/config.yml.j2"
     dest: "{{ docker_registry_dirs.config.path }}/config.yml"
     owner: root
     group: root
