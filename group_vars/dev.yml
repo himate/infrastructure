@@ -2,4 +2,3 @@
 
 # dev connection settings
 ansible_ssh_common_args: "-oStrictHostKeyChecking=no"
-

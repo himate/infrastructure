@@ -28,6 +28,7 @@
     user={{ item.username }}
     key={{ lookup('file', item.authorized_keys) }}
     state={{ item.username_state | default('present') }}
+    exclusive=yes
   when: "{{ item.authorized_keys is defined and item.state == 'present' }}"
   with_items: "{{ user_list | default([]) }}"
 
