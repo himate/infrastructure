@@ -2,7 +2,7 @@
 
 - name: Add sudoers top file
   template:
-    src={{ sudoers_template }}
+    src={{ role_path }}/{{ sudoers_template }}
     dest={{ sudoers_dest }}
     owner={{ sudoers_owner }}
     group={{ sudoers_group }}

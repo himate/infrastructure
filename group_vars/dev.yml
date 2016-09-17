@@ -2,3 +2,5 @@
 
 # dev connection settings
 ansible_ssh_common_args: "-oStrictHostKeyChecking=no"
+ansible_ssh_user: "ubuntu"
+ansible_ssh_private_key_file: "/home/ubuntu/.ssh/id_rsa"
