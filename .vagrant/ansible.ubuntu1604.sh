@@ -61,8 +61,9 @@ sudo chown -R ubuntu:root /etc/ansible
 ######
 # Hosts
 ######
-sudo echo "10.10.11.11 himate-management" >> /etc/hosts
-sudo echo "10.10.11.12 himate-app-test" >> /etc/hosts
+sudo echo "10.10.11.11 himate-dockerhub" >> /etc/hosts
+sudo echo "10.10.11.12 himate-jenkins" >> /etc/hosts
+sudo echo "10.10.11.13 himate-app-test" >> /etc/hosts
 
 
 ######
