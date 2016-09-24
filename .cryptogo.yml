@@ -56,6 +56,10 @@ secretGroups:
         decrypted: "group_vars/jenkins.yml"
       - encrypted: "group_vars/himate-test.yml"
         decrypted: "group_vars/himate-test.yml"
+      - encrypted: "group_vars/live-mongodb.yml"
+        decrypted: "group_vars/live-mongodb.yml"
+      - encrypted: "group_vars/aws.yml"
+        decrypted: "group_vars/aws.yml"
       - encrypted: "roles/users/defaults/main.yml"
         decrypted: "roles/users/defaults/main.yml"
 
@@ -69,9 +73,9 @@ secretGroups:
         decrypted: ".aws/init/ubuntu16.04/production_node.sh"
       - encrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh.enc"
         decrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh"
-      - encrypted: "inventories/aws/groups.enc"
+      - encrypted: "inventories/groups.enc"
         decrypted: "inventories/aws/groups"
-      - encrypted: "inventories/aws/ec2.ini.enc"
+      - encrypted: "inventories/ec2.ini.enc"
         decrypted: "inventories/aws/ec2.ini" 
 
   users:

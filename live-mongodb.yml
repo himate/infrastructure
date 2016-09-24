@@ -1,0 +1,14 @@
+---
+
+- hosts: live-mongodb
+  become: yes
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - mongodb
+    - docker
+
+  tags:
+    - live-mongodb
+
+...
