@@ -11,6 +11,7 @@ ansible_pass
 .aws/credentials/deploy.sh
 .aws/init/ubuntu16.04/production_node.sh
 .aws/ec2/mongodb/run_ubuntu16.04.sh
+.aws/ec2/dockerhub/run_ubuntu16.04.sh
 inventories/aws/ec2.ini
 inventories/aws/groups
 
