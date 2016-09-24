@@ -9,6 +9,8 @@ ansible_pass
 .vagrant/machines
 
 .aws/credentials/deploy.sh
+.aws/init/ubuntu16.04/production_node.sh
+.aws/ec2/mongodb/run_ubuntu16.04.sh
 
 roles/users/files/10001_kf/authorized_keys
 roles/users/files/9500_an/authorized_keys

@@ -65,6 +65,10 @@ secretGroups:
     secrets:
       - encrypted: ".aws/credentials/deploy.sh.enc"
         decrypted: ".aws/credentials/deploy.sh" 
+      - encrypted: ".aws/init/ubuntu16.04/production_node.sh.enc"
+        decrypted: ".aws/init/ubuntu16.04/production_node.sh"
+      - encrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh.enc"
+        decrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh"
 
   users:
     key: "`cat openssl_sec1_pass`"
