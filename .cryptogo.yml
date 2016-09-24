@@ -73,6 +73,8 @@ secretGroups:
         decrypted: ".aws/init/ubuntu16.04/production_node.sh"
       - encrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh.enc"
         decrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh"
+      - encrypted: ".aws/ec2/dockerhub/run_ubuntu16.04.sh.enc"
+        decrypted: ".aws/ec2/dockerhub/run_ubuntu16.04.sh"
       - encrypted: "inventories/groups.enc"
         decrypted: "inventories/aws/groups"
       - encrypted: "inventories/ec2.ini.enc"
