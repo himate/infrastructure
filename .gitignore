@@ -11,6 +11,8 @@ ansible_pass
 .aws/credentials/deploy.sh
 .aws/init/ubuntu16.04/production_node.sh
 .aws/ec2/mongodb/run_ubuntu16.04.sh
+inventories/aws/ec2.ini
+inventories/aws/groups
 
 roles/users/files/10001_kf/authorized_keys
 roles/users/files/9500_an/authorized_keys

@@ -69,6 +69,10 @@ secretGroups:
         decrypted: ".aws/init/ubuntu16.04/production_node.sh"
       - encrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh.enc"
         decrypted: ".aws/ec2/mongodb/run_ubuntu16.04.sh"
+      - encrypted: "inventories/aws/groups.enc"
+        decrypted: "inventories/aws/groups"
+      - encrypted: "inventories/aws/ec2.ini.enc"
+        decrypted: "inventories/aws/ec2.ini" 
 
   users:
     key: "`cat openssl_sec1_pass`"
