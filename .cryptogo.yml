@@ -60,6 +60,8 @@ secretGroups:
         decrypted: "group_vars/live-mongodb.yml"
       - encrypted: "group_vars/jenkins-playground.yml"
         decrypted: "group_vars/jenkins-playground.yml"
+      - encrypted: "group_vars/live-admin.yml"
+        decrypted: "group_vars/live-admin.yml"
       - encrypted: "group_vars/aws.yml"
         decrypted: "group_vars/aws.yml"
       - encrypted: "roles/users/defaults/main.yml"
@@ -79,6 +81,8 @@ secretGroups:
         decrypted: ".aws/ec2/dockerhub/run_ubuntu16.04.sh"
       - encrypted: ".aws/ec2/jenkins/run_ubuntu16.04.sh.enc"
         decrypted: ".aws/ec2/jenkins/run_ubuntu16.04.sh"
+      - encrypted: ".aws/ec2/admin/run_ubuntu16.04.sh.enc"
+        decrypted: ".aws/ec2/admin/run_ubuntu16.04.sh"
       - encrypted: "inventories/groups.enc"
         decrypted: "inventories/aws/groups"
       - encrypted: "inventories/ec2.ini.enc"
@@ -100,3 +104,10 @@ secretGroups:
         decrypted: "roles/users/templates/sudoers.j2" 
       - encrypted: "roles/users/templates/sudoers.group.j2.enc"
         decrypted: "roles/users/templates/sudoers.group.j2"
+
+  app:
+    key: "`cat openssl_sec1_pass`"
+    encryption: "openssl"
+    secrets:
+      - encrypted: "roles/admin/templates/live.json.j2.enc"
+        decrypted: "roles/admin/templates/live.json.j2"

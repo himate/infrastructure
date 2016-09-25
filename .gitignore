@@ -14,6 +14,7 @@ ansible_pass
 .aws/ec2/dockerhub/run_ubuntu16.04.sh
 .aws/ec2/jenkins/run_ubuntu16.04.sh
 .aws/ec2/jenkins-playground/run_ubuntu16.04.sh
+.aws/ec2/admin/run_ubuntu16.04.sh
 inventories/aws/ec2.ini
 inventories/aws/groups
 
@@ -23,3 +24,5 @@ roles/users/files/9501_de/authorized_keys
 roles/users/files/9502_hi/authorized_keys
 roles/users/templates/sudoers.j2
 roles/users/templates/sudoers.group.j2
+
+roles/admin/templates/live.json.j2

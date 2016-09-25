@@ -1,0 +1,8 @@
+---
+
+- name: "{{ app_admin_container_restart_id }}"
+  docker_container:
+    name: "{{ app_admin_container_name }}"
+    restart: true
+
+...

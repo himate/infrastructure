@@ -1,8 +1,8 @@
 ---
 
 nginx_container_name: "nginx"
-nginx_container_image: "nginx:1.11.3-alpine"
-nginx_container_restart_id: "restart nginx container"
+nginx_container_image: "nginx:1.11.4-alpine"
+nginx_container_restart_id: "restart {{ nginx_container_name }} container"
 
 nginx_container_log_dir: "/var/log/nginx"
 

@@ -1,0 +1,6 @@
+---
+
+- name: Deploy admin settings.json
+  template:
+    src: "{{ role_path }}/{{ app_admin_settings_template }}"
+    dest: "{{ app_admin_host_config }}"

@@ -1,0 +1,9 @@
+---
+
+app_admin_container_name: "admin"
+app_admin_container_image: "docker.himate.org/admin/app:docker-SNAPSHOT"
+app_admin_service_restart_id: "restart {{ app_admin_container_name }} service"
+
+app_admin_container_config: "/usr/src/app/settings.json"
+
+...

@@ -1,0 +1,15 @@
+---
+
+- hosts: live-admin
+  become: yes
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - admin
+    - nginx
+    - docker
+
+  tags:
+    - live-admin
+
+...
