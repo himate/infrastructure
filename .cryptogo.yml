@@ -58,6 +58,8 @@ secretGroups:
         decrypted: "group_vars/himate-test.yml"
       - encrypted: "group_vars/live-mongodb.yml"
         decrypted: "group_vars/live-mongodb.yml"
+      - encrypted: "group_vars/jenkins-playground.yml"
+        decrypted: "group_vars/jenkins-playground.yml"
       - encrypted: "group_vars/aws.yml"
         decrypted: "group_vars/aws.yml"
       - encrypted: "roles/users/defaults/main.yml"

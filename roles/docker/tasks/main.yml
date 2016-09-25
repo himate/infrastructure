@@ -32,7 +32,7 @@
     etc_hosts: "{{ item.etc_hosts | default(omit) }}"
     restart_policy: "{{ item.restart_policy | default(omit) }}"
     volumes_from: "{{ item.volumes_from | default(omit) }}"
-  with_items: "{{ docker_containers | default(omit) }}"
+  with_items: "{{ docker_containers | default([]) }}"
   when: "not {{ item.only_initial|default('False') }} or {{ is_initial_run|default('False') }}"
 
 - name: logout of private registry

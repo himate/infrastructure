@@ -1,0 +1,13 @@
+---
+
+- hosts: jenkins-playground
+  become: yes 
+  no_log: "{{ disable_log | default('no') }}"
+  roles:
+    - common
+    - docker
+
+  tags:
+    - jenkins-playground
+
+...
