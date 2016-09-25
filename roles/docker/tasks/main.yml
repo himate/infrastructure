@@ -6,11 +6,11 @@
 - name: docker distribution specific install
   include: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yml"
 
-#- name: login to private registry
-#  docker_login:
-#    registry: "{{ docker_registry }}"
-#    username: "{{ docker_username }}"
-#    password: "{{ docker_password }}"
+- name: login to private registry
+  docker_login:
+    registry: "{{ docker_registry }}"
+    username: "{{ docker_username }}"
+    password: "{{ docker_password }}"
 
 - name: deploy docker containers
   docker_container:
@@ -35,7 +35,7 @@
   with_items: "{{ docker_containers | default(omit) }}"
   when: "not {{ item.only_initial|default('False') }} or {{ is_initial_run|default('False') }}"
 
-#- name: logout of private registry
-#  shell: "docker logout {{ docker_registry }}"
+- name: logout of private registry
+  shell: "docker logout {{ docker_registry }}"
 
 ...
