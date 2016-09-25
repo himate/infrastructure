@@ -13,6 +13,7 @@ ansible_pass
 .aws/ec2/mongodb/run_ubuntu16.04.sh
 .aws/ec2/dockerhub/run_ubuntu16.04.sh
 .aws/ec2/jenkins/run_ubuntu16.04.sh
+.aws/ec2/jenkins-playground/run_ubuntu16.04.sh
 inventories/aws/ec2.ini
 inventories/aws/groups
 
